@@ -4,6 +4,10 @@ A responsive, single-page React portfolio styled like a soft dusty-blue digital
 scrapbook. It uses hand-built CSS for the paper, tape, polaroid, sticker, stamp,
 and doodle effects—no UI framework or image pack required.
 
+The site has no backend, API routes, database, authentication, or persistence.
+The small `worker/` adapter exists only so the hosting platform can serve the
+built React page.
+
 ## Personalize the content
 
 The easiest place to start is the `app/components` folder. Search the project
