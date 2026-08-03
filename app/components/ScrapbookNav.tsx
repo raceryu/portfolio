@@ -1,46 +1,53 @@
 "use client";
 
-import { useState } from "react";
+import Link from "next/link";
+import type { MouseEvent } from "react";
 
 const links = [
-  { label: "hello", href: "#home" },
-  { label: "about", href: "#about" },
-  { label: "projects", href: "#projects" },
-  { label: "skills", href: "#skills" },
+  { label: "about", href: "/#home" },
+  { label: "projects", href: "/projects" },
+  { label: "experience", href: "/experience" },
   { label: "contact", href: "#contact" },
 ];
 
 export default function ScrapbookNav() {
-  const [isOpen, setIsOpen] = useState(false);
+  const handleHomeNavigation = (event: MouseEvent<HTMLAnchorElement>) => {
+    if (!document.getElementById("home")) return;
+
+    event.preventDefault();
+    window.history.replaceState(null, "", "#home");
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches
+        ? "auto"
+        : "smooth",
+    });
+  };
 
   return (
     <header className="site-nav">
-      <a className="nav-mark" href="#home" aria-label="Back to top">
-        y<span>n</span>
-      </a>
-      <button
-        className="nav-toggle"
-        type="button"
-        aria-expanded={isOpen}
-        aria-controls="primary-navigation"
-        onClick={() => setIsOpen((open) => !open)}
+      <Link
+        className="nav-mark"
+        href="/#home"
+        aria-label="Back to top"
+        onClick={handleHomeNavigation}
       >
-        <span aria-hidden="true">{isOpen ? "×" : "☰"}</span>
-        <span className="sr-only">Toggle navigation</span>
-      </button>
+        <span className="nav-home-icon" aria-hidden="true" />
+      </Link>
       <nav
         id="primary-navigation"
-        className={isOpen ? "nav-links nav-links--open" : "nav-links"}
+        className="nav-links"
         aria-label="Primary navigation"
       >
         {links.map((link) => (
-          <a
+          <Link
             key={link.href}
             href={link.href}
-            onClick={() => setIsOpen(false)}
+            onClick={link.href === "/#home" ? handleHomeNavigation : undefined}
           >
             {link.label}
-          </a>
+          </Link>
         ))}
       </nav>
     </header>

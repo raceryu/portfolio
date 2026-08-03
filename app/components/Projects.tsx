@@ -1,84 +1,31 @@
-const projects = [
-  {
-    number: "01",
-    title: "Project One",
-    description:
-      "A short, clear description of what you made, who it helped, and why it mattered.",
-    tags: ["React", "Design", "CSS"],
-    className: "project-card--one",
-  },
-  {
-    number: "02",
-    title: "Project Two",
-    description:
-      "Share the problem you solved and the part of the process you’re especially proud of.",
-    tags: ["TypeScript", "API", "UX"],
-    className: "project-card--two",
-  },
-  {
-    number: "03",
-    title: "Project Three",
-    description:
-      "Add one memorable outcome or detail that makes someone want to learn more.",
-    tags: ["Research", "Web", "Brand"],
-    className: "project-card--three",
-  },
-];
+import Link from "next/link";
+import ProjectSticker from "./ProjectSticker";
+import { projects } from "../data/projects";
 
 export default function Projects() {
   return (
     <section
-      className="projects scrapbook-page"
+      className="projects section-wrap"
       id="projects"
       aria-labelledby="projects-title"
     >
       <div className="projects-heading">
-        <p className="section-kicker">selected works · 20XX—now</p>
-        <h2 id="projects-title">things I&apos;ve made</h2>
-        <p>A small collection of ideas brought to life.</p>
+        <p className="section-kicker">DIRECTORY /WORK/SELECTED · 2022—PRESENT</p>
+        <h2 id="projects-title">projects</h2>
+        {/* <p>Three files from the archive. Double-click to look around.</p> */}
       </div>
 
-      <div className="project-list">
-        {projects.map((project) => (
-          <article
-            className={`project-card ${project.className}`}
-            key={project.number}
-          >
-            <div className="tape tape--short" aria-hidden="true" />
-            <div className="project-number" aria-hidden="true">
-              {project.number}
-            </div>
-            <div
-              className="project-image-placeholder"
-              role="img"
-              aria-label={`Placeholder image for ${project.title}`}
-            >
-              {/* REPLACE: project image */}
-              <div className="project-window">
-                <span />
-                <span />
-                <span />
-              </div>
-              <p>project preview</p>
-            </div>
-            <div className="project-copy">
-              <h3>{project.title}</h3>
-              <p>{project.description}</p>
-              <ul className="tag-list" aria-label="Technology tags">
-                {project.tags.map((tag) => (
-                  <li key={tag}>{tag}</li>
-                ))}
-              </ul>
-              <a href="#contact" aria-label={`Ask about ${project.title}`}>
-                view the story <span aria-hidden="true">→</span>
-              </a>
-            </div>
-          </article>
+      <div className="project-sticker-list">
+        {projects.slice(0, 3).map((project, index) => (
+          <ProjectSticker project={project} index={index} key={project.id} />
         ))}
       </div>
 
-      <div className="projects-footer-note" aria-hidden="true">
-        ✦ made with equal parts logic + daydreams ✦
+      <div className="projects-more">
+        <span aria-hidden="true">✦ · · ·</span>
+        <Link href="/projects">
+          [ OPEN FULL DIRECTORY ] <span aria-hidden="true">→</span>
+        </Link>
       </div>
     </section>
   );

@@ -1,16 +1,11 @@
 import type { Metadata } from "next";
-import { Geist } from "next/font/google";
+import DigicoreBackdrop from "./components/DigicoreBackdrop";
 import "./globals.css";
 
-const geist = Geist({
-  variable: "--font-body",
-  subsets: ["latin"],
-});
-
 export const metadata: Metadata = {
-  title: "Your Name — Creative Portfolio",
+  title: "Rachel Yu - Digital Portfolio",
   description:
-    "A digital scrapbook of thoughtful design, code, and creative experiments.",
+    "A personal web archive of projects and experience.",
 };
 
 export default function RootLayout({
@@ -20,7 +15,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={geist.variable}>{children}</body>
+      <body>
+        <DigicoreBackdrop />
+        {children}
+      </body>
     </html>
   );
 }
