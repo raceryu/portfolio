@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import type { ReactNode } from "react";
 import type { Project } from "../data/projects";
 
 type ProjectStickerProps = {
@@ -14,6 +15,16 @@ const withBasePath = (imagePath: string) =>
         imagePath.startsWith("/") ? imagePath : `/${imagePath}`
       }`
     : null;
+
+// Wrap text in single asterisks to italicize it, for example: *this is italic*.
+const formatProjectText = (text: string): ReactNode[] =>
+  text.split(/(\*[^*]+\*)/g).map((part, partIndex) =>
+    part.startsWith("*") && part.endsWith("*") ? (
+      <em key={`${part}-${partIndex}`}>{part.slice(1, -1)}</em>
+    ) : (
+      part
+    ),
+  );
 
 export default function ProjectSticker({
   project,
@@ -66,7 +77,7 @@ export default function ProjectSticker({
       <div className="project-sticker-copy">
         <p className="project-sticker-kicker">FILE_{project.number}.HTML</p>
         <h3>{project.title}</h3>
-        <p>{project.description}</p>
+        <p>{formatProjectText(project.description)}</p>
         <ul aria-label="Project tags">
           {project.tags.map((tag) => (
             <li key={tag}>{tag}</li>
@@ -118,7 +129,7 @@ export default function ProjectSticker({
                       </p>
                       {galleryImage.description.map((paragraph, paragraphIndex) => (
                         <p key={`${project.id}-detail-${galleryIndex}-${paragraphIndex}`}>
-                          {paragraph}
+                          {formatProjectText(paragraph)}
                         </p>
                       ))}
                     </div>
