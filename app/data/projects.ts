@@ -64,9 +64,9 @@ export const projects: Project[] = [
   {
     id: "project-two",
     number: "02",
-    title: "Driver Ergonomics Jig",
+    title: "FSAE Driver Ergonomics Jig",
     description:
-      "Designed and built a full-scale cockpit mockup to establish steering column, pedal box, and seat positioning",
+      "Designed and built a full-scale Formula SAE car cockpit mockup to establish steering column, pedal box, and seat positioning",
     tags: ["Creo", "Top-down Design", "Fabrication"],
     tone: "cream",
     image: "/images/projects/ergo_jig.jpg", // Example: "/images/projects/project-three.webp"
