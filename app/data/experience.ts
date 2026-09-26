@@ -173,7 +173,7 @@ export const awards: AwardItem[] = [
 export const skillGroups: SkillGroup[] = [
   {
     category: "Design & Fabrication",
-    skills: ["CAD/CAM (Fusion360, Onshape)", "CNC Milling", "Manual Machining (Mill, Lathe)"],
+    skills: ["CAD/CAM (Fusion360, Onshape, Creo)", "CNC Milling", "Manual Machining (Mill, Lathe)"],
   },
   {
     category: "Programming",
