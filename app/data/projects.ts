@@ -64,6 +64,45 @@ export const projects: Project[] = [
   {
     id: "project-two",
     number: "02",
+    title: "Driver Ergonomics Jig",
+    description:
+      "Designed and built a full-scale cockpit mockup to establish steering column, pedal box, and seat positioning",
+    tags: ["Creo", "Top-down Design", "Fabrication"],
+    tone: "cream",
+    image: "/images/projects/ergo_jig.jpg", // Example: "/images/projects/project-three.webp"
+    imageAlt: "Driver Ergonomics Jig preview",
+    imageCaption: "",
+    showProjectDetails: false, // Set this to false on any project to hide both detail controls.
+    details: [
+      "REPLACE: use this area for a longer project overview or case-study paragraph.",
+      "REPLACE: describe your process, contribution, and the final result.",
+    ],
+    gallery: [
+      {
+        image: "",
+        imageAlt: "Project Three detail one",
+        detailLabel: "DETAIL_03_01.TXT",
+        caption: "REPLACE: gallery caption one.",
+        description: [
+          "REPLACE: explain this stage of the project and your contribution.",
+          "REPLACE: add another detail, challenge, or outcome connected to the image.",
+        ],
+      },
+      {
+        image: "",
+        imageAlt: "Project Three detail two",
+        detailLabel: "DETAIL_03_02.TXT",
+        caption: "REPLACE: gallery caption two.",
+        description: [
+          "REPLACE: explain this stage of the project and your contribution.",
+          "REPLACE: add another detail, challenge, or outcome connected to the image.",
+        ],
+      },
+    ],
+  },
+  {
+    id: "project-three",
+    number: "03",
     title: "FRC Robots (2023 - 2026)",
     description:
       "Designed and fabricated robots for the 2023 to 2026 seasons of the FIRST Robotics Competition with FRC Team 670",
@@ -119,8 +158,8 @@ export const projects: Project[] = [
     ],
   },
   {
-    id: "project-three",
-    number: "03",
+    id: "project-four",
+    number: "04",
     title: "Free Flight Aircrafts",
     description:
       "Designed and built a series of free-flight aircrafts as part of an introductory aerospace program",
@@ -164,8 +203,8 @@ export const projects: Project[] = [
     ],
   },
   {
-    id: "project-four",
-    number: "04",
+    id: "project-five",
+    number: "05",
     title: "Achromatic Lens Simulation",
     description:
       "Simulated custom achromatic doublet lenses in OSLO based on OSU’s Petawatt-class laser amplifier research",
